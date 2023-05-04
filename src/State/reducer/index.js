@@ -1,9 +1,9 @@
+
 import { combineReducers } from "redux";
-import accountReducer from "./accountReducer";
+import accountReducer from "./accountReducer"
 
-//Takes an object of all the reducers.
 const reducer = combineReducers({
-    account: accountReducer
-});
+    bank: accountReducer
+})
 
-export default reducers
+export default reducer

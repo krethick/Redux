@@ -1,19 +1,26 @@
-import React from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
 import { useSelector } from "react-redux"
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from 'redux'
+import { actionCreator } from "./State/index"
 
 
 function App() {
 
-   const account = useSelector((state) => state.account);
+  const state = useSelector((state) => state.bank);
 
-  console.log(account)
+  const dispatch = useDispatch();
+
+  const { depositMoney, withdrawMoney } = bindActionCreators(actionCreator, dispatch);
+
+  console.log(state)
 
   return (
     <div className="App">
-
+      <h1>{state}</h1>
+      <button onClick={() => depositMoney(1000)}>Deposit</button>
+      <button onClick={() => withdrawMoney(1000)}>Withdraw</button>
     </div>
   );
 }
